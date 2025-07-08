@@ -19,7 +19,7 @@ pipeline{
         stage ("Run pytest in container"){
             steps{
                 echo "Running pytest in container"
-                sh 'docker run -v .:/app $IMAGE_NAME'
+                sh 'docker run --rm -v .:/app $IMAGE_NAME'
             }
         }
         stage ("Copy report"){
