@@ -1,0 +1,7 @@
+.pytest_cache
+assets
+htmlcov
+venv
+.coverage
+report.html
+Jenkinsfile2
