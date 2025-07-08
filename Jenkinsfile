@@ -24,8 +24,8 @@ pipeline{
         }
         stage ("Copy report"){
             steps{
-                echo "Copying HTML report"
-                sh 'cp report.html report.html'
+                echo "Skipping Copying of HTML report"
+                // sh 'cp report.html report.html'
             }
         }
         stage ("Publish HTML report"){
@@ -35,6 +35,12 @@ pipeline{
                     reportFiles: 'report.html',
                     reportName: 'HTML report'
                 ]
+            }
+        }
+        stage ("Cleaning up"){
+            steps{
+                echo "Cleaning up by removing $IMAGE_NAME"
+                sh "docker image rm $IMAGE_NAME"
             }
         }
     }
